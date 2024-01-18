@@ -11,13 +11,12 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>削除画面</title>
-        <link rel="stylesheet" href="css/style.css">
 	</head>
 	<body>
 <?php
     $pdo=new PDO($connect, USER, PASS);
-    $sql=$pdo->prepare('delete from Book where book_id=?');
-    if($sql->execute([$_POST['book_id']])){
+    $sql=$pdo->prepare('delete from Category where category_id=?');
+    if($sql->execute([$_POST['category_id']])){
         echo '削除に成功しました。';
     }else{
         echo '削除に失敗しました。';
@@ -25,21 +24,19 @@
 ?>
     <br><hr><br>
 	<table>
-    <tr><th>書籍番号</th><th>カテゴリー</th><th>書籍名</th><th>著者</th></tr>
+    <tr><th>カテゴリーID</th><th>カテゴリー名</th></tr>
 <?php
     $pdo=new PDO($connect, USER, PASS);
-    foreach ($pdo->query('select * from Book') as $row) {
+    foreach ($pdo->query('select * from Category') as $row) {
         echo '<tr>';
-        echo '<td>', $row['book_id'], '</td>';
         echo '<td>', $row['category_id'], '</td>';
-        echo '<td>', $row['book_name'], '</td>';
-        echo '<td>', $row['book_author'], '</td>';
+        echo '<td>', $row['category_name'], '</td>';
         echo '<td>';
             echo '</tr>';
             echo "\n";
         }
     ?>
     </table>
-    <button onclick="location.href='detail.php'">書籍一覧へ戻る</button>
+    <button onclick="location.href='category.php'">カテゴリー一覧へ戻る</button>
 </body>
 </html>

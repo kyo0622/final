@@ -11,6 +11,7 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>商品更新画面</title>
+		<link rel="stylesheet" href="css/style.css">
 	</head>
 	<body>
     <table>
@@ -41,7 +42,7 @@
 	}
 ?>
 </table>
-<button onclick="location.href='detail.php'">トップへ戻る</button>
+<button onclick="location.href='detail.php'">書籍一覧へ戻る</button>
     </body>
 </html>
 

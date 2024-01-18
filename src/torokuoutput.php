@@ -46,6 +46,6 @@
         }
     ?>
     </table>
-    <button onclick="location.href='detail.php'">トップへ戻る</button>
+    <button onclick="location.href='detail.php'">書籍一覧へ戻る</button>
 </body>
 </html>

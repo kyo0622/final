@@ -20,7 +20,6 @@
     if(empty($_POST['book_id'])) {
         echo '書籍ーIDを入力してください。';
     }else if(empty($_POST['category_id'])) {
-        echo '1→絵本,2→小説,3→漫画,4→エッセイ';
         echo 'カテゴリーIDを入力してください。';
     }else if(empty($_POST['book_name'])) {
         echo '書籍名を入力してください。';
@@ -49,7 +48,7 @@
         }
     ?>
         </table>
-        <button onclick="location.href='detail.php'">トップへ戻る</button>
+        <button onclick="location.href='detail.php'">書籍一覧へ戻る</button>
     </body>
 </html>
 
