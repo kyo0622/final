@@ -10,7 +10,7 @@
 <html lang="ja">
 	<head>
 		<meta charset="UTF-8">
-        
+        <link rel="stylesheet" href="css/style.css">
 		<title>書籍管理システム</title>
 	</head>
 	<body>

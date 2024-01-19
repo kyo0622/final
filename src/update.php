@@ -12,6 +12,7 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>更新画面</title>
+        <link rel="stylesheet" href="css/style.css">
 	</head>
 	<body>
     <?php
@@ -37,10 +38,10 @@
         <tr><th>書籍番号</th><th>カテゴリー</th><th>書籍名</th><th>著者</th></tr>
 <?php
     $pdo=new PDO($connect, USER, PASS);
-    foreach ($pdo->query('select * from Book') as $row) {
+    foreach ($pdo->query('select * from Book INNER JOIN Category ON Book.category_id = Category.category_id') as $row) {
         echo '<tr>';
         echo '<td>', $row['book_id'], '</td>';
-        echo '<td>', $row['category_id'], '</td>';
+        echo '<td>', $row['category_name'], '</td>';
         echo '<td>', $row['book_name'], '</td>';
         echo '<td>', $row['book_author'], '</td>';
             echo '</tr>';

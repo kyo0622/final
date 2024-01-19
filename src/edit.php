@@ -10,39 +10,35 @@
 <html lang="ja">
 	<head>
 		<meta charset="UTF-8">
-		<title>商品更新画面</title>
-		<link rel="stylesheet" href="css/style.css">
+		<title>更新画面</title>
+		<link rel="stylesheet" href="css/style2.css">
 	</head>
 	<body>
-    <table>
-    <tr><th>書籍番号</th><th>カテゴリー</th><th>書籍名</th><th>著者</th></tr>
+    
 <?php
     $pdo=new PDO($connect, USER, PASS);
-	$sql=$pdo->prepare('select * from Book where book_id=?');
+	$sql=$pdo->prepare('select * from Book INNER JOIN Category ON Book.category_id = Category.category_id where book_id=?');
 	$sql->execute([$_POST['book_id']]);
 	foreach ($sql as $row) {
-        echo '<tr>';
 		echo '<form action="update.php" method="post">';
-		echo '<td>';
+		echo '<p>書籍ID</p>';
 		echo '<input type="text" name="book_id" value="', $row['book_id'], '">';
-		echo '<br></td> ';
-		echo '<td>';
-		echo '<input type="text" name="category_id" value="', $row['category_id'], '">';
-		echo '<br></td> ';
-		echo '<td>';
+		echo '<p>書籍名</p>';
 		echo '<input type="text" name="book_name" value="', $row['book_name'], '">';
-		echo '<br></td> ';
-		echo '<td>';
+		echo '<p>著者</p>';
 		echo '<input type="text" name="book_author" value="', $row['book_author'], '">';
-		echo '<br></td> ';
-		echo '<td><input type="submit" value="更新"><br></td>';
-		echo '</form>';
-        echo '</tr>';
-		echo "\n";
 	}
+	echo '<p>カテゴリー</p>';
+	echo '<select name="category_id">';
+		foreach ($pdo->query('select * from Category') as $row) {
+		echo '<option value="',$row['category_id'],'">',$row['category_name'],'</option>';
+		}
+		echo '</select>';
+		echo '<br><input type="submit" value="更新"><br>';
+		echo '</form>';
 ?>
 </table>
-<button onclick="location.href='detail.php'">書籍一覧へ戻る</button>
-    </body>
+<br><button onclick="location.href='detail.php'">書籍一覧へ戻る</button>
+</body>
 </html>
 

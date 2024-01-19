@@ -11,6 +11,7 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>削除画面</title>
+        <link rel="stylesheet" href="css/style.css">
 	</head>
 	<body>
 <?php
@@ -31,7 +32,6 @@
         echo '<tr>';
         echo '<td>', $row['category_id'], '</td>';
         echo '<td>', $row['category_name'], '</td>';
-        echo '<td>';
             echo '</tr>';
             echo "\n";
         }

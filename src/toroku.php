@@ -10,7 +10,7 @@
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
-
+    <link rel="stylesheet" href="css/style2.css">
     <title>書籍登録</title>
 </head>
 <body>

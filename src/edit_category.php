@@ -11,6 +11,7 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>商品更新画面</title>
+		<link rel="stylesheet" href="css/style.css">
 	</head>
 	<body>
     <table>
@@ -23,10 +24,10 @@
         echo '<tr>';
 		echo '<form action="update_category.php" method="post">';
 		echo '<td>';
-		echo '<input type="text" name="book_id" value="', $row['category_id'], '">';
+		echo '<input type="text" name="category_id" value="', $row['category_id'], '">';
 		echo '<br></td> ';
 		echo '<td>';
-		echo '<input type="text" name="book_name" value="', $row['category_name'], '">';
+		echo '<input type="text" name="category_name" value="', $row['category_name'], '">';
 		echo '<br></td> ';
 		echo '<td><input type="submit" value="更新"><br></td>';
 		echo '</form>';
